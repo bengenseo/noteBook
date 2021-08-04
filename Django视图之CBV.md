@@ -57,20 +57,18 @@ class DB:
 
 #### 将数据封装到对象中
 
-        ```python
-        class File:
-        	def __init__(self,key1,key2):
-        		self.key1 = a1
-        		self.key2 = a2
-        obj1= File(123,456)
-        ```
+    class File:
+        def __init__(self,key1,key2):
+            self.key1 = a1
+            self.key2 = a2
+    obj1= File(123,456)
 
 ## 示例
 
 ```python
 from rest_framework.generics import ListAPIView,CreateAPIView,RetrieveAPIView,UpdateAPIView,DestroyAPIView
 class NameView(APIView):
-    # 增
+    # 改
     def put(self, request, *args, **kwargs):
         return HttpResponse("PUT")
     
@@ -78,7 +76,7 @@ class NameView(APIView):
     def delete(self, request, *args, **kwargs):
         return HttpResponse("DELETE")
     
-    # 改
+    # 增
     def post(self, request, *args, **kwargs):
         return HttpResponse("POST")
 
