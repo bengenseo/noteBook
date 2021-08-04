@@ -87,3 +87,43 @@ class NameView(APIView):
         return HttpResponse("GET")
 ```
 
+## 基类继承
+
+公共类继承(多个类共用的功能,为了避免重复编写)
+
+```python
+class MyBaseView(object):
+    def dispatch(self,request,*args,**kwargs):
+        print("Before")
+        ret = super(MyBaseView,self).dispatch(request, *args, **kwargs)
+        print("After")
+        return ret
+```
+
+自定义类
+
+​	优先级比较高,就把 MyBaseView 放在前面
+
+```python
+class StudentsView(MyBaseView,view):
+    # 增
+    def put(self, request, *args, **kwargs):
+        return HttpResponse("PUT")
+    
+    # 删
+    def delete(self, request, *args, **kwargs):
+        return HttpResponse("DELETE")
+    
+    # 改
+    def post(self, request, *args, **kwargs):
+        return HttpResponse("POST")
+
+    # 查
+    def get(self, request, *args, **kwargs):
+        return HttpResponse("GET")
+```
+
+
+
+
+
