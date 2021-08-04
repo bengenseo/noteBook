@@ -43,9 +43,9 @@ v =[1,2]
 
 ## 文件"增删改查"方法
 
-        ```pyhton
-        class File:
-        ```
+```python
+class File:
+```
 
 ## 数据库"增删改查"方法
 
@@ -57,11 +57,13 @@ class DB:
 
 #### 将数据封装到对象中
 
-    class File:
-        def __init__(self,key1,key2):
-            self.key1 = a1
-            self.key2 = a2
-    obj1= File(123,456)
+```python
+class File:
+    def __init__(self,key1,key2):
+        self.key1 = a1
+        self.key2 = a2
+obj1= File(123,456)
+```
 
 ## 示例
 
