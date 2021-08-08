@@ -49,12 +49,12 @@ process_render_template
 
 		- process_view方法
 		- 先判断视图中有无装饰器(@csrf_exempt, @csrf_protect)
-
+	
 		- 去请求体或cookie中获取token
 
 
 
-#### 免认证
+## 免认证
 
 ```python
 from django.views.decorators.csrf import csrf_exempt
@@ -64,7 +64,38 @@ def XxxView(APIView):
     pass
 ```
 
-#### 需认证
+#### 方法一
+
+```python
+from django.views.decorators.csrf import csrf_exempt
+from django.utils.decorators import method_decorator
+class StudentsView(view):
+    @method_decorator(csrf_exempt)
+    def dispatch(self, request, *args, **kwargs):
+        return super(StudentsView,self).dispatch( request, *args, **kwargs)
+    
+    def post(self, request, *args, **kwargs):
+        pass
+```
+
+#### 方法二
+
+```python
+from django.views.decorators.csrf import csrf_exempt
+from django.utils.decorators import method_decorator
+
+@method_decorator(csrf_exempt,name="dispatch")
+class StudentsView(view):
+    
+    def post(self, request, *args, **kwargs):
+        pass
+```
+
+
+
+
+
+## 需认证
 
 ```python
 from django.views.decorators.csrf import csrf_protect
@@ -73,6 +104,41 @@ from django.views.decorators.csrf import csrf_protect
 def XxxView(APIView):
     pass
 ```
+
+#### 方法一
+
+```python
+from django.views.decorators.csrf import csrf_protect
+from django.utils.decorators import method_decorator
+class StudentsView(view):
+    @method_decorator(csrf_protect)
+    def dispatch(self, request, *args, **kwargs):
+        return super(StudentsView,self).dispatch( request, *args, **kwargs)
+    
+    def post(self, request, *args, **kwargs):
+        pass
+```
+
+#### 方法二
+
+```python
+from django.views.decorators.csrf import csrf_protect
+from django.utils.decorators import method_decorator
+
+@method_decorator(csrf_protect,name="dispatch")
+class StudentsView(view):
+    
+    def post(self, request, *args, **kwargs):
+        pass
+```
+
+## 取消csrf认证
+
+装饰器要嫁到dispatch方法上切method_decorator装饰
+
+
+
+
 
 
 
