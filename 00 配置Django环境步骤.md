@@ -7,7 +7,7 @@ Django==1.11.29
 
 django_redis==4.11.0
 
-djangorestframework==3.90
+djangorestframework==3.9.0
 
 腾讯云短信模块
 tencentcloud-sdk-python
@@ -25,8 +25,24 @@ pip3 install virtualenv
 
 ```python
 virtualenv 环境名称
-virtualenv Django_drf
+virtualenv Exercise
 ```
+
+## pycharm配置
+
+```python
+打开步骤
+File ==> settings ==> languages&frameworks ==> Django
+
+Django project root: 项目路径
+settings: 项目/settings.py
+
+manage script: manage.py
+    
+run ==> eidt configurations
+```
+
+
 
 ### 具体步骤
 
