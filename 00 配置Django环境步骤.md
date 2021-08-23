@@ -89,16 +89,16 @@ django-admin startproject Django_drf
 python manage.py startapp api
 ```
 
-#### 创建表
+#### 将类转换成数据表结构
 
 ```text
-python manage.py migrate
+python manage.py makemigrations
 ```
 
-#### 迁移表文件
+#### 生成数据表
 
 ```python
-python manage.py makemigrations
+python manage.py migrate
 ```
 
 
