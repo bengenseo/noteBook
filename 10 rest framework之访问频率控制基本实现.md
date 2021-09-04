@@ -1,5 +1,12 @@
 # rest framework之访问频率控制基本实现
 
+## 基本使用
+
+- 类,继承:BaseThrottle
+  - 实现:allow_request/wait
+- 类,继承:SimpleRateThrottle
+  - 实现:get_cache_key/scope = "Bengen"(配置文件中的key)
+
 ## 自定义
 
 ```python
@@ -47,5 +54,35 @@ class VisitThrottle(object):
 class LoginView(APIView):
 	#  
     throttle_classes = [VisitThrottle,]
+```
+
+## 局部
+
+```python
+# 对用户访问频率控制
+class UserThrottle(SimpleRateThrottle):
+    scope = 'BengenUser'
+
+    def get_cache_key(self, request, view):
+        # 返回用户名
+        return request.user.username
+
+class LoginView(APIView):
+     # 引用节流
+    throttle_classes = [UserThrottle,]
+```
+
+## 全局(settings.py)
+
+```python
+REST_FRAMEWORK={
+    # 节流
+    "DEFAULT_THROTTLE_CLASSES":['api.utils.throttle.VisitThrottle'],
+    # 内置,控制访问次数
+    "DEFAULT_THROTTLE_RATES":{
+        "Bengen":'3/m',
+        "BengenUser":'10/m'
+    }
+}
 ```
 

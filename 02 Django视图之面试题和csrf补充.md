@@ -134,15 +134,32 @@ class StudentsView(view):
 
 ## 取消csrf认证
 
-装饰器要嫁到dispatch方法上切method_decorator装饰
+- 装饰器要加到dispatch方法上@method_decorator装饰
+
+## rest framework 认证流程(封装request)
 
 
 
+## rest framework 权限流程
 
 
 
+## rest framework 节流流程
 
 
 
+## 代码:
 
+- #### 认证demo
 
+- #### 权限demo(用户类型不同,权限不同)
+
+- #### 节流demo(匿名,登陆[vip,svip])
+
+- #### 三组件组合
+
+## 分页总结
+
+- ### 数据量大的话,如何做分页?
+
+  - #### 数据库性能相关?

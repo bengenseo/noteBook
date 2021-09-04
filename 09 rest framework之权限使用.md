@@ -43,6 +43,21 @@ REST_FRAMEWORK={
 }
 ```
 
+## 对每个对象是否有权限
+
+- GenericAPIView.get_object
+  - check_object_permissions
+    - has_object_permission
+
+```python
+from rest_framework.generics import GenericAPIView
+class RzGGenericAPIView(GenericAPIView):
+    def get_object(self):
+        self.check_object_permissions()
+```
+
+
+
 ## 返回值
 
 - True
