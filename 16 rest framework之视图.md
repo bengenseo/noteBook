@@ -70,6 +70,16 @@ url(r'^(?P<version>[v1|v2]+)/(?i)view1/(?P<pk>\d+)/$', views.view1View.as_view({
 
 - ### 视图
 
+  - 归类FilerBackend.py
+
+```python
+from rest_framework.filters import BaseFilterBackend
+class PageFilerBackend(BaseFilterBackend):
+    def filter_queryset(self, request, queryset, view):
+        val=request.query_params.get('archives')
+        return queryset.filter(archives_id=val)
+```
+
 ```python
 from rest_framework.viewsets import GenericViewSet,ModelViewSet
 from rest_framework.mixins import CreateModelMixin,DestroyModelMixin,UpdateModelMixin,ListModelMixin,RetrieveModelMixin
@@ -77,11 +87,73 @@ from api.utils.serializers.pager import PageSerializer
 from rest_framework.response import Response
 class view1View(ModelViewSet):
     queryset = models.Role.objects.all()
+    filter_backends = [PageFilerBackend,]
     serializer_class = PageSerializer
     pagination_class = PageNumberPagination
+    
+    # def put(self,request,pk):
+    #     return self.update(request,pk)
+    # def delete(self,request,pk):
+    #     return self.destroy(request,pk)
+    # def post(self,request,pk):
+    #     return self.create(request,pk)
+    # def get(self,request,pk):
+    #     return self.list(request,pk)
+    # def path(self,request,pk):
+    #     return self.partial_update(request,pk)
 ```
 
 ## 总结
+
+- ### 查找,增加(不需要传id)
+
+  - #### 不需要传id
+
+    - ```python
+      from rest_framework.generics import CreateView,ListView
+      class NewsView(CreateView,ListView):
+          queryset = models.Role.objects.all()
+          serializer_class = PageSerializer
+          # 钩子方法
+          def get_serializer_class(self):
+              if self.request.method=='GET':
+                  return PageSerializer
+              elif  self.request.method=='POST':
+                  return Page2Serializer
+      ```
+
+    - ```python
+      from rest_framework.generics import ListCreateAPIView
+      class NewsView(ListCreateAPIView):
+          queryset = models.Role.objects.all()
+          serializer_class = PageSerializer
+          # 钩子方法
+          def get_serializer_class(self):
+              if self.request.method=='GET':
+                  return PageSerializer
+              elif  self.request.method=='POST':
+                  return Page2Serializer
+      ```
+
+    - 
+
+  - #### 需要传id
+
+    - ```python
+      from rest_framework.generics import UpdateView,RetrieveView,DestroyAPIView
+      class NewsView(UpdateView,RetrieveView,DestroyAPIView):
+          queryset = models.Role.objects.all()
+          serializer_class = PageSerializer
+      ```
+
+    - ```python
+      from rest_framework.generics import RetrieveUpdateDestroyAPIView
+      class NewsView(RetrieveUpdateDestroyAPIView):
+          queryset = models.Role.objects.all()
+          serializer_class = PageSerializer
+      ```
+
+    - ---
 
 - 基本增删改查等
   - ModelViewSet

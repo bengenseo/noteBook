@@ -66,5 +66,9 @@ class UserInfoView(APIView):
         return HttpResponse(ret)
 ```
 
+## 源码继承关系
 
+- ### initial()执行在视图函数之前
+
+![image-20210912224642628](images/image-20210912224642628.png)
 

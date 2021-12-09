@@ -16,11 +16,14 @@ class SvipPermission(BasePermission):
         return True
 
 class VipPermission(BasePermission):
-    message = 'VIP以上才能访问'
+    message = {"code":10001,'error':'VIP以上才能访问'}
     def has_permission(self,request,view):
         if request.user.user_type == 1:
             return False
         return True
+     def has_object_permission(self,request,view,):
+            # 单个数据
+            return False
 ```
 
 ## 局部
@@ -54,6 +57,13 @@ from rest_framework.generics import GenericAPIView
 class RzGGenericAPIView(GenericAPIView):
     def get_object(self):
         self.check_object_permissions()
+```
+
+## 自定义抛出异常
+
+```python
+from rest_framework import exceptions
+raise exceptions.PermissionDenied({"code":10001,'error':'用户没有权限'})
 ```
 
 

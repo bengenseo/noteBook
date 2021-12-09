@@ -38,6 +38,8 @@ class RolesView(APIView):
 ```python
 from rest_framework import serializers
 class UserInfoSerializer(serializers.Serializer):
+    #  required=False
+    xxx = serializers.CharField(source="user_type",required=False)
     type = serializers.CharField(source="user_type") # row.user_type
     rank = serializers.CharField(source="get_user_type_display")  # row.get_user_type_display()
     username = serializers.CharField()
@@ -112,6 +114,13 @@ class UserInfoSerializer(serializers.ModelSerializer):
         fields= "__all__"
         # fields = ["id","username","password","rank","role"]
         depth = 1 # 控制层级关联深度 0 ~ 10
+        '''
+        exclude=['id'] # 忽略字段
+        # depth = 3 # 层级深度,
+        post方法添加时可能出现问题: 
+            django.db.utils.IntegrityError: NOT NULL constraint failed: api_article.ArcType_id
+        1.多创建一个Serializer,
+        '''
 
 class UserInfoView(APIView):
     def get(self,request,*args,**kwargs):
@@ -157,4 +166,103 @@ class GroupView(APIView):
         ret = json.dumps(ser.data,ensure_ascii=False)
         return HttpResponse(ret)
 ```
+
+## 数据库时间序列化
+
+```python
+class TimeSerializer(serializers.ModelSerializer):
+    date = serializers.SerializerMethodField()
+    class Meta:
+        model = models.Archives
+        fields="__all__"
+    def get_date(self,obj):
+        return obj.date.strftime("%Y-%m-%d %H:%M:%S") if obj.date else ""
+```
+
+## 一个视图判断多个Serializer
+
+- ### 一
+
+```python
+from rest_framework.mixins import ListModelMixin,RetrieveModelMixin
+class ArticleView(APIView):
+    '''文章视图类'''
+
+    serializer_class=None
+    def get_serializer_class(self):
+        pk=self.kwargs.get('pk')
+        if not pk:
+            return AllSerializer#返回多条serializer
+        return FilterSerializer  # 返回单条serializer
+```
+
+- ### 二
+
+```python
+    def get_serializer_class(self):
+        if self.request.method == 'GET':
+            return AllSerializer
+        elif self.request.method == "POST":
+            return FilterSerializer
+```
+
+
+
+## 获取浏览数(阅读量)
+
+```python
+from django.db.models import F
+class ArticleView(APIView):
+    '''文章视图类'''
+    authentication_classes = []
+
+    def get(self, request, *args, **kwargs):
+        # 1.获取单条数据再做序列化
+        result= super().get(request, *args,**kwargs)
+        
+        # 2.对浏览器进行自加1
+        #pk = kwargs.get('pk')
+        #models.Archives.objects.filter(pk=pk).update(read_count=F("read_count")+1)
+        
+        # 3.对浏览器进行自加1
+        instance=self.get_object()
+        instance.read_count+=1
+        instance.save()
+        
+        return result
+```
+
+## 评论过滤条件
+
+```python
+from rest_framework.generics import ListAPIView,CreateAPIView
+from rest_framework.filters import BaseFilterBackend
+class CommentBaseFilterBackend(BaseFilterBackend):
+    '''过滤条件'''
+    def filter_queryset(self, request, queryset, view):
+        archives_id = request.query_params.get('archives',None)
+        if not archives_id:
+            return queryset.none()
+        return queryset.filter(archives_id=archives_id)
+class CommentView(ListAPIView,CreateAPIView):
+    '''评论接口'''
+    queryset = models.Comment.objects.all()
+    serializer_class=serializer.CommentSerializer
+    filter_backends=[CommentBaseFilterBackend,]
+    def get_authenticators(self):
+        if self.request.method == 'GET':
+            return []
+        elif self.request.method == "POST":
+            return super().get_authenticators()
+    def perform_create(self,serializer):
+        serializer.save(user=self.request.user)
+```
+
+
+
+
+
+
+
+
 

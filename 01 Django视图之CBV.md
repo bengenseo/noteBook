@@ -1,5 +1,9 @@
 # Django视图之CBV
 
+## 视图关系
+
+![image-20210913224654610](images/image-20210913224654610.png)
+
 FBV: function base view
 
 CBV: class base view

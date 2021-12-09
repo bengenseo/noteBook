@@ -75,7 +75,7 @@ class Page1View(APIView):
 
 
 
-- ### 分页,看第N页,每页显示N条数据
+- ## 分页,看第N页,每页显示N条数据
 
 ```python
 from rest_framework.pagination import PageNumberPagination
@@ -89,7 +89,7 @@ class MyPageNumberPagination(PageNumberPagination):
     page_size_query_param = 'size'
 ```
 
-- ### 分页,在N个位置,向后查看N条数据
+- ## 分页,在N个位置,向后查看N条数据
 
 ```python
 # 分页
@@ -103,7 +103,7 @@ class MyLimitOffsetPagination(LimitOffsetPagination):
 	offset_query_param = 'offset'
 ```
 
-- ### 加密分页,上一页和下一页
+- ## 加密分页,上一页和下一页
 
 ```python
 from rest_framework.pagination import CursorPagination

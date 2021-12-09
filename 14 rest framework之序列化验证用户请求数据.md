@@ -30,3 +30,4 @@ class UserGroupView(APIView):
 ## 问: 自定义验证规则时,需要钩子函数?请问钩子函数如何写?
 
 - ### is_valid-->self.run_validation-->to_internal_value-->to_internal_value-->validate_字段名称(执行字段验证,钩子方法)-->validate_method(钩子验证方法)
+
