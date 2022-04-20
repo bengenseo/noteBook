@@ -298,6 +298,16 @@ python manage.py makemigrations
 python manage.py migrate
 ```
 
+### pycharm
+
+```Python
+#快速指令
+Ctrl+alt+R
+导航栏-Tool-run manage.py T 
+```
+
+
+
 ## MySQL时区配置
 
 ```
@@ -326,6 +336,10 @@ DATABASES = {
 
     }
 }
+# 语言,时区
+LANGUAGE_CODE = 'zh-hans'
+
+TIME_ZONE = 'Asia/Shanghai'
 ```
 
 ## 命令行启动
@@ -355,11 +369,16 @@ python3 manage.py runserver        --> 默认在本机的8000端口启动
 #静态文件(css/js/图片)
 # 静态文件保存目录的别名
 STATIC_URL = '/static/'
+# STATIC_ROOT = os.path.join(BASE_DIR, 'static')
 
 # 所有静态文件(css/js/图片)都放在我下面你配置的文件夹中
 STATICFILES_DIRS = [
     os.path.join(BASE_DIR, "static"),
 ]
+# 上传文件
+MEDIA_URL = '/uploads/'
+MEDIA_ROOT = os.path.join(BASE_DIR, 'uploads')
+CKEDITOR_UPLOAD_PATH = 'allimg/'
 #注释掉setting.py中 带有 csrf 的那一行(大概45~47行)
 'django.middleware.csrf.CsrfViewMiddleware',
 ```
