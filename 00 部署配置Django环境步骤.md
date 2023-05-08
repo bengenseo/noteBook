@@ -1,5 +1,17 @@
 # 配置步骤
 
+## 链接外部数据库IP出错解决方法
+
+```html
+D:\GitHub\Django\Lamps\Lib\site-packages\django\db\backends\mysql\base.py
+# 注释掉第(35/36)行
+
+if version < (1, 4, 0):
+    raise ImproperlyConfigured('mysqlclient 1.4.0 or newer is required; you have %s.' % Database.__version__)
+```
+
+
+
 ## 上线一定要创建
 
 - ## 单独Nginx
@@ -160,7 +172,9 @@ asgiref==3.4.1
 certifi==2021.5.30
 charset-normalizer==2.0.3
 Django==1.11.29
+#  
 django-cors-headers==3.2.0
+# redis服务器
 django-redis==4.11.0
 djangorestframework==3.9.0
 idna==3.2
@@ -172,10 +186,16 @@ sqlparse==0.4.1
 tencentcloud-sdk-python==3.0.442
 typing-extensions==3.10.0.0
 urllib3==1.26.6
+# 图片处理
 pillow==8.3.2
+# 编辑器
 django-ckeditor==5.4.0
+# 搜索
 django-haystack==2.7.0
+# tags标签
 django-taggit==0.23.0
+# 数据生成器
+faker
 whoosh
 ```
 
@@ -192,6 +212,12 @@ pip3 install virtualenv
 ```python
 virtualenv 环境名称
 virtualenv Exercise
+```
+
+### 纯净环境,不含模块
+
+```python
+virtualenv --no-site-packages myvenv
 ```
 
 ## pycharm配置
@@ -375,6 +401,7 @@ STATIC_URL = '/static/'
 STATICFILES_DIRS = [
     os.path.join(BASE_DIR, "static"),
 ]
+STATIC_ROOT = os.path.join(BASE_DIR, '/static/')
 # 上传文件
 MEDIA_URL = '/uploads/'
 MEDIA_ROOT = os.path.join(BASE_DIR, 'uploads')

@@ -8,12 +8,14 @@
 
 ## from ckeditor_uploader.views(重命名,上传路径)
 
+### 修改文件(路径: D:\GitHub\Django\MyDjango\Lib\site-packages\ckeditor_uploader\views.py)
+
 ```python
 import os,time,random
 def get_upload_filename(upload_name, user):
     if getattr(settings, 'CKEDITOR_RESTRICT_BY_DATE', True):
         # 原生 date_path = datetime.now().strftime('%Y/%m/%d')
-        date_path = datetime.now().strftime('%Y%m%d')
+        date_path = datetime.now().strftime('%Y%m')
 
     if (getattr(settings, 'CKEDITOR_UPLOAD_SLUGIFY_FILENAME', True) and
             not hasattr(settings, 'CKEDITOR_FILENAME_GENERATOR')):
@@ -205,3 +207,77 @@ urlpatterns = [
     url(r'^ckeditor/',include('ckeditor_uploader.urls')),
 ]
 ```
+
+## 代码功能
+
+### 路径:D:\GitHub\Django\Lamps\Lib\site-packages\ckeditor\static\ckeditor\ckeditor\config.js
+
+```js
+CKEDITOR.editorConfig = function (config) {
+    // Define changes to default configuration here. For example:
+    // config.language = 'fr';
+    // config.uiColor = '#AADC6E';
+    //config.extraPlugins:"codesnippet"; // 添加 代码功能
+    config.disallowedContent='img{width,height};img[width,height]';//取消图片默认宽高
+};
+
+```
+
+### settings.py
+
+```python
+
+CKEDITOR_CONFIGS = {
+    'default': {
+         'toolbar': (
+             # 代码功能
+            ['Blockquote', 'CodeSnippet'],
+         ),
+        'extraPlugins': 'codesnippet',# 代码功能
+    }
+```
+
+## 代码高亮设置
+
+### 解压文件[highlight.zip](images\highlight.zip) 
+
+### 引用js: highlight.min.js
+
+### 引用css不同样式: styles文件夹
+
+```html
+<link rel="stylesheet" href="{% static 'highlight/styles/devibeans.min.css' %}">
+<script src="{% static 'highlight/highlight.min.js' %}"></script>
+<script>
+    hljs.initHighlightingOnLoad();//代码高亮
+</script>
+```
+
+## 复制按钮
+
+### 文件  [cope.js](images\cope.js) 
+
+```html
+<script src="{% static 'highlight/cope.js' %}"></script>
+<div id=" "  data-clipboard-target=".hljs">Copy</div>
+<script>
+    //复制按钮
+    var btn = document.getElementById('btn');
+    var clipboard = new ClipboardJS(btn);
+
+    clipboard.on('success', function (e) {
+        console.info('Action:', e.action);
+        console.info('Text:', e.text);
+        console.info('Trigger:', e.trigger);
+    });
+
+    clipboard.on('error', function (e) {
+        console.info('Action:', e.action);
+        console.info('Text:', e.text);
+        console.info('Trigger:', e.trigger);
+    });
+</script>
+```
+
+
+
