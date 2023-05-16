@@ -239,7 +239,7 @@ CKEDITOR_CONFIGS = {
 
 ## 代码高亮设置
 
-### 解压文件[highlight.zip](images\highlight.zip) 
+### 解压文件[highlight.zip](./assets\highlight.zip) 
 
 ### 引用js: highlight.min.js
 
@@ -255,7 +255,7 @@ CKEDITOR_CONFIGS = {
 
 ## 复制按钮
 
-### 文件  [cope.js](images\cope.js) 
+### 文件  [cope.js](./assets\cope.js) 
 
 ```html
 <script src="{% static 'highlight/cope.js' %}"></script>

@@ -16,7 +16,7 @@ if version < (1, 4, 0):
 
 - ## 单独Nginx
 
-  - [项目部署.pdf](images\项目部署.pdf) 
+  - [项目部署.pdf](./assets\项目部署.pdf) 
 
 - ## 基于宝塔
 

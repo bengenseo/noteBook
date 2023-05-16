@@ -23,9 +23,9 @@ ii_env\Scripts\activate
 
 ### 打开权限
 
-![](D:\GitHub\noteBook\images\pycharm\1.png)
+![](./assets/1.png)
 
-![2](D:\GitHub\noteBook\images\pycharm\2.png)
+![](./assets/2.png)
 
 ### 代码命令:
 
@@ -53,7 +53,7 @@ Set-ExecutionPolicy Bypass
 
 ## 背景图
 
-![](images/image-20220909084319449.png)
+![](./assets/image-20220909084319449.png)
 
 ## 代码提示
 
@@ -61,7 +61,7 @@ Set-ExecutionPolicy Bypass
 
 ## 快速导入模块
 
-![image-20211102215701307](images/image-20211102215701307.png)
+![](./assets/image-20211102215701307.png)
 
 ### 快捷键:
 
@@ -73,38 +73,38 @@ alt+enter
 
 ## 全局引入模块
 
-![image-20211102220013040](images/image-20211102220013040.png)
+![](./assets/image-20211102220013040.png)
 
 ### 局部引入模块
 
-![image-20211102220154459](images/image-20211102220154459.png)
+![](./assets/image-20211102220154459.png)
 
 ## 提交GitHub配置
 
-![image-20211108204245276](images/image-20211108204245276.png)
+![image-20211108204245276](./assets/image-20211108204245276.png)
 
-![image-20211108204324643](images/image-20211108204324643.png)
+![image-20211108204324643](./assets/image-20211108204324643.png)
 
-![image-20211108204417366](images/image-20211108204417366.png)
+![image-20211108204417366](./assets/image-20211108204417366.png)
 
-![image-20211108204451701](images/image-20211108204451701.png)
+![image-20211108204451701](./assets/image-20211108204451701.png)
 
 ## pycharm配置
 
-![image-20210903232713741](images/image-20210903232713741.png)
+![image-20210903232713741](./assets/image-20210903232713741.png)
 
-![image-20210903235059936](images/image-20210903235059936.png)
+![image-20210903235059936](./assets/image-20210903235059936.png)
 
 ## 步骤返回
 
-![image-20210912202144393](images/image-20210912202144393.png)
+![image-20210912202144393](./assets/image-20210912202144393.png)
 
 
 
-![image-20210912202223576](images/image-20210912202223576.png)
+![image-20210912202223576](./assets/image-20210912202223576.png)
 
 ## 快速提示未导入的依赖包安装
 
-![image-20220506044136622](images/image-20220506044136622.png)
+![image-20220506044136622](./assets/image-20220506044136622.png)
 
-![image-20220506052525147](images/image-20220506052525147.png)
+![image-20220506052525147](./assets/image-20220506052525147.png)

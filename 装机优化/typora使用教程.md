@@ -6,12 +6,12 @@
 
 ## 步骤
 
-![image-20230513092226165](D:\GitHub\noteBook\装机优化\assets\image-20230513092226165.png)
+![](.\assets\image-20230513092226165.png)
 
 - 偏好设置
 
-  ![通用设置](D:\GitHub\noteBook\装机优化\assets\image-20230513091206062.png)
+  ![通用设置](.\assets\image-20230513091206062.png)
 
 
 
-![图像images保存位置设置](D:\GitHub\noteBook\装机优化\assets\image-20230513091305033.png)
+![图像images保存位置设置](.\assets\image-20230513091305033.png)

@@ -70,5 +70,5 @@ class UserInfoView(APIView):
 
 - ### initial()执行在视图函数之前
 
-![image-20210912224642628](images/image-20210912224642628.png)
+![image-20210912224642628](./assets/image-20210912224642628.png)
 
