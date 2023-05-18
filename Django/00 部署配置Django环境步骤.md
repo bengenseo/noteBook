@@ -273,9 +273,7 @@ run ==> eidt configurations
 django-admin startproject Django_drf
 ```
 
-## Django项目的启动
-
-#### 创建API
+## 创建API
 
 ```python
 python manage.py startapp api
