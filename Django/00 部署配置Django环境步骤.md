@@ -327,7 +327,7 @@ python manage.py migrate
 ```Python
 #快速指令
 Ctrl+alt+R
-导航栏-Tool-run manage.py T 
+导航栏-Tool-run manage.py Task
 ```
 
 
