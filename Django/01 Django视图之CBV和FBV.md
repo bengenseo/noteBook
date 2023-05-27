@@ -2,7 +2,9 @@
 
 ## 视图关系
 
-![image-20210913224654610](images/image-20210913224654610.png)
+![image-20230527235831949](./assets/image-20230527235831949.png)
+
+![image-20210913224654610](./assets/image-20210913224654610-1685203240386-1.png)
 
 FBV: function base view
 
