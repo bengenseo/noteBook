@@ -108,3 +108,14 @@ alt+enter
 ![image-20220506044136622](./assets/image-20220506044136622.png)
 
 ![image-20220506052525147](./assets/image-20220506052525147.png)
+
+## 修改镜像源
+
+```py
+阿里云 
+http://mirrors.aliyun.com/pypi/simple/
+豆瓣(douban) 
+http://pypi.douban.com/simple/
+
+```
+
