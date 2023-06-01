@@ -79,9 +79,11 @@ python manage.py startapp api
 
     ```py
     # apps文件夹
-        'apps.web.apps.AppConfig',
-        'apps.back.apps.AppConfig',
-        'apps.api.apps.AppConfig',
+        'apps.web.apps.WebConfig',
+        'apps.back.apps.BackConfig',
+        'apps.api.apps.ApiConfig',
     ```
 
+    - ### 图片是错误的
+    
     ![image-20230519054011193](./assets/image-20230519054011193.png)

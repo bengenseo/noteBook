@@ -1,5 +1,29 @@
 # windows 10 优化教程
 
+## 删除IE
+
+### 快捷键: win+R
+
+```text
+regedit
+```
+
+### 路径
+
+```text
+计算机\HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows\CurrentVersion\Explorer\Desktop\NameSpace\
+```
+
+
+
+### IE注册表为
+
+```text
+{B416D21B-3B22-B6D4-BBD3-BBD452DB3D5B5}
+```
+
+
+
 ## 虚拟机VMware
 
 ### 首先安装VMware tools工具
