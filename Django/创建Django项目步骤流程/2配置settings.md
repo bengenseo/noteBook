@@ -50,12 +50,14 @@
     DATABASES = {
         'default': {
             'ENGINE': 'django.db.backends.mysql',  # 数据库类型
-            'NAME': 'demo',  # 数据库名字
-            'HOST': 'localhost', # ip
-            'PORT': '3306', 
+            'NAME': 'blog',  # 数据库名字
+            'HOST': 'localhost',  # ip
+            'PORT': '3306',
             'USER': 'root',  # 数据库账户
             'PASSWORD': '',  # 数据库密码
-    
+            'OPTIONS': {
+                'init_command': "SET sql_mode='STRICT_TRANS_TABLES'",
+            },
         }
     }
     serverTimezon:Asia/Shanghai
@@ -63,6 +65,8 @@
     LANGUAGE_CODE = 'zh-hans'
     
     TIME_ZONE = 'Asia/Shanghai'
+    
+    USE_TZ = False
     #静态文件(css/js/图片)
     # 静态文件保存目录的别名
     STATIC_URL = '/static/'
