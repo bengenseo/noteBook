@@ -28,4 +28,5 @@
 
 ![](images/14.png)
 
-![](../images/vpn/15.png)
+![](images/15.png)
+

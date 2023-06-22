@@ -1,5 +1,13 @@
 # CkEditor
 
+## 修改Django默认后台模板BUG
+
+- ```py
+  C:\custom\GitHub\Django\day05\.venv\Lib\site-packages\django\contrib\admin\static\admin\css\foms.css
+  ```
+
+  ![image-20230615093207241](./assets/image-20230615093207241.png)
+
 ## 关闭标签过滤safe
 
 ```

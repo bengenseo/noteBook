@@ -38,7 +38,7 @@ pip install django==3.2
 - ### 带' . '为当前目录下创建
 
 ```py
- django-admin startproject 项目名 .
+django-admin startproject 项目名 .
 django-admin startproject fq .
 ```
 
