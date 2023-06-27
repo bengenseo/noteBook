@@ -1,14 +1,24 @@
 # 配置步骤
 
-## 链接外部数据库IP出错解决方法
+## 方法一,链接外部数据库IP出错解决方法
+
+- ### 路径D:\GitHub\Django\Lamps\Lib\site-packages\django\db\backends\mysql\base.py
 
 ```html
-D:\GitHub\Django\Lamps\Lib\site-packages\django\db\backends\mysql\base.py
 # 注释掉第(35/36)行
 
 if version < (1, 4, 0):
     raise ImproperlyConfigured('mysqlclient 1.4.0 or newer is required; you have %s.' % Database.__version__)
 ```
+
+- 方法二,项目setting.py 同级__ int __.py
+
+- ```python
+  # 固定写法
+  import pymysql
+  pymysql.version_info=(1, 4, 2, "final", 0)
+  pymysql.install_as_MySQLdb()  # 告诉django用pymysql代替mysqldb连接数据库
+  ```
 
 
 
@@ -142,7 +152,7 @@ if version < (1, 4, 0):
 
 ## 版本依赖
 
-- 指令
+- 指令,打包
 
 ```python
 python -m pip freeze > requirements.txt
@@ -201,10 +211,26 @@ whoosh
 
 ## 虚拟环境
 
+- 设置镜像源
+
+  - 路径C:\Users\知否
+
+    - 创建pip文件夹下pip.ini
+
+    ```
+    [global]
+    index-url=https://pypi.douban.com/simple
+    timeout = 6000
+    [install]
+    trusted-host=pypi.douban.com
+    disable-pip-version-check = true
+    ```
+
 ### 安装
 
 ```python
 pip3 install virtualenv
+pip install virtualenv -i http://pypi.douban.com/simple/
 ```
 
 ### 创建环境
@@ -343,9 +369,10 @@ serverTimezon:Asia/Shanghai
 - ```python
   # 固定写法
   import pymysql
+  pymysql.version_info=(1, 4, 2, "final", 0)
   pymysql.install_as_MySQLdb()  # 告诉django用pymysql代替mysqldb连接数据库
   ```
-
+  
 - ### settings.py
 
 ```python

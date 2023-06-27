@@ -55,7 +55,8 @@ systemctl restart docker
 ## 修改TAG版本
 
 ```
-docker tag nginx:latest nginx:v1.0
+docker tag bengenseo/os7py9:<none> bengenseo/os7py9:1.0
+docker tag boiler:1.0 boiler:latest
 ```
 
 
