@@ -1,5 +1,11 @@
 # 00 Python封装可执行文件exe
 
+```
+pip install pyinstaller
+```
+
+
+
 ## 隐藏cmd窗口
 
 ```python
