@@ -78,6 +78,27 @@ systemctl daemon-reload
 systemctl restart docker
 ```
 
+## 安装git
+
+### 安装
+
+```
+sudo yum install git -y
+```
+
+### 配置用户
+
+```
+git config --global user.name "bengenseo"
+git config --global user.email "bengenseo@126.com"
+```
+
+### 克隆GitHub库
+
+```
+git clone https://github.com/bengenseo/boiler.git
+```
+
 ## docker compose
 
 ### 安装
