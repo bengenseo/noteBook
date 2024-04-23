@@ -176,3 +176,7 @@ TaskbarAcrylicOpacity
 　　3、在其右侧新建个名为 NoUseStoreOpenWith 的DWORD（32位）值，把数值数据设置成1，最后再点击确定保存设置即可。
 ```
 
+## 恢复默认DNS：
+
+打开命令提示符或 Windows PowerShell，键入ipconfig /flushdns，然后按 Enter。
+
