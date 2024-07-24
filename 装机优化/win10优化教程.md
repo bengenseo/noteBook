@@ -1,5 +1,16 @@
 # windows 10 优化教程
 
+## 系统移除任务管理器-启动项
+
+```
+计算机\HKEY_CURRENT_USER\Software\Microsoft\Windows\CurrentVersion\Run
+计算机\HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows\CurrentVersion\Run
+```
+
+###  软件
+
+[Optimizer-16.5.exe](assets\Optimizer-16.5.exe) 
+
 ## 删除IE
 
 ### 快捷键: win+R

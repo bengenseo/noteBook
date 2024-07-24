@@ -1,4 +1,17 @@
+## 1.更新包管理器
 
+```
+sudo yum update
+sudo yum install libstdc++.i686
+sudo yum install glibc.i686
+sudo yum install libgcc.i686
+sudo yum install zlib.i686
+sudo yum install libstdc++.i686 glibc.i686 libgcc.i686 zlib.i686
+
+sudo ln -s /lib/ld-linux.so.2 /lib64/ld-linux.so.2
+ls -l /lib/ld-linux.so.2
+ls -l /lib64/ld-linux.so.2
+```
 
 ## 网关文件
 
