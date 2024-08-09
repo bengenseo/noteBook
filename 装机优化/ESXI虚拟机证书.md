@@ -4,14 +4,13 @@
 
 ### 软件https://github.com/FiloSottile/mkcert/releases/
 
-[Source code(zip)](https://github.com/FiloSottile/mkcert/archive/refs/tags/v1.4.4.zip)
-
-## cmd窗口
+ [10years.zip](assets\10years.zip) 
 
 ### exsi虚拟机的ip
 
 ```
 mkcert_10years.exe 192.168.200.100
+8.134.148.228
 mkcert_10years.exe -install
 ```
 
