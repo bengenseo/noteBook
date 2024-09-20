@@ -2,6 +2,7 @@
 
 ```
 sudo yum update
+yum install curl -y
 sudo yum install libstdc++.i686
 sudo yum install glibc.i686
 sudo yum install libgcc.i686
@@ -37,13 +38,19 @@ vi /etc/sysconfig/network-scripts/ifcfg-eth0
 DEVICE=eth0
 BOOTPROTO=static
 HWADDR=00:0C:29:57:BC:B0
-IPADDR=192.168.200.100
+IPADDR=192.168.200.200
 IPV6INIT=yes
 IPV6_AUTOCONF=yes
 NETMASK=255.255.255.0
-GATEWAY=192.168.200.1
+GATEWAY=192.168.200.103
 ONBOOT=yes
 DNS1=8.8.8.8
+```
+
+### 重启网关
+
+```
+service network restart
 ```
 
 ## windows

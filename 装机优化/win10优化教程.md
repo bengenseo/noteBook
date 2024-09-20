@@ -191,3 +191,17 @@ TaskbarAcrylicOpacity
 
 打开命令提示符或 Windows PowerShell，键入ipconfig /flushdns，然后按 Enter。
 
+## Ubuntu安装
+
+###  笔记本不挂起
+
+```
+sudo apt install gnome-tweaks
+```
+
+1. 打开[活动](https://help.ubuntu.com/stable/ubuntu-help/shell-introduction.html.zh-CN#activities)概览后输入优化。
+2. 点击优化打开应用程序。
+3. 选择常规标签。
+4. 将笔记本电脑盖子关闭时挂起开关切换为关闭状态。
+5. 关闭优化窗口。
+
